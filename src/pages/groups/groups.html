@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Groups
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card color="header">
+		<ion-card-content> 
+			<ion-item text-wrap>
+				<ion-label>Showing results for {{namesOfSelectedCategories}} in Johannesburg</ion-label>
+			</ion-item>              
+		</ion-card-content>
+	</ion-card>
+	<ion-list>
+		<ion-card class="group card" *ngFor="let group of groups" color="primary">
+			<ion-card-header> 
+				<ion-item color="primary">
+					<ion-label item-start><h1>{{group.name}}</h1></ion-label>
+				</ion-item>              
+			</ion-card-header>
+			<ion-card-content>   
+				<ion-item color="primary">          					
+					<p>Category: {{group.category.name}}</p> 
+					<p>Status:   {{group.status}}</p> 
+					<p>Members:   {{group.members}}</p> 
+				</ion-item>       
+			</ion-card-content>
+		</ion-card>
+	</ion-list>
+</ion-content>
+  

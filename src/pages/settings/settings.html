@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+  <h1>Specify your groups.</h1>
+
+  <div *ngIf="showLoading">
+    <p>
+      Loading...
+    </p>
+  </div>
+  <ion-list>
+    <ion-card class="category card" *ngFor="let category of categories" color="primary" >
+      <ion-card-header> 
+          <ion-item color="primary">
+              <ion-label item-start><h1>{{category.name}}</h1></ion-label>
+              <ion-checkbox item-end (ionChange)="addToSelected(category)" end></ion-checkbox>
+          </ion-item>              
+      </ion-card-header>
+      <ion-card-content>   
+          <ion-item color="primary">          
+            <p>{{category.sort_name}}</p> 
+            <p>{{category.shortname}}</p> 
+          </ion-item>       
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="itemsAreSelected">
+  <ion-item color="white" text-wrap>
+      <ion-label>{{selectedCategoriesNames}}</ion-label>
+      <button item-end ion-button (click)="findGroups()" color="primary">Find Groups</button>
+  </ion-item>   
+</ion-footer>
+    
